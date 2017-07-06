@@ -1,0 +1,11 @@
+{
+  "name": "alexaforce",
+  "version": "1.0.0",
+  "description": "Project to Connect Alexa Skills to Salesforce",
+  "main": "index.js",
+  "author": "Chris Gary <cgary@cloudperformer.com>",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "^1.0.11"
+  }
+}
