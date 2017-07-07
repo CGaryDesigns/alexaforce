@@ -1,6 +1,7 @@
 'use strict';
 
 const Alexa = require('alexa-sdk');
+const _ = require('lodash');
 
 //lets define some constants for some defined states.
 let states = {
@@ -27,7 +28,10 @@ let mainHandler = {
 //be used.
 let connectionHandler = Alexa.CreateStateHandler(states.START,{
     'Connect': function(){
-        
+        //first we need to determine if we already have an access_token for Salesforce
+        if(_.has(this,'event.session.user.accessToken') && this.event.session.user.accessToken != null){
+            
+        }
     }
 });
 
@@ -39,7 +43,7 @@ let connectionHandler = Alexa.CreateStateHandler(states.START,{
 //are registered and the alexa application is executed
 exports.handler = function(event, context, callback){
     let alexa = Alexa.handler(event,context);
-    alexa.registerHandlers(mainHandlers);
+    alexa.registerHandlers(mainHandler,connectionHandler);
     alexa.execute();
     callback();
 }
